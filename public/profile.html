@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Profile</title>
+  <link rel="stylesheet" href="/src/css/style.css" />
+  <script type="module">
+    const userId = localStorage.getItem("currentUserId");
+    if (!userId) {
+      window.location.href = "login.html";
+    }
+  </script>
+</head>
+<body>
+  <div id="header-container"></div>
+
+  <div class="container">
+    <h1 id="username">User Profile</h1>
+
+    <div id="user-details">
+      <p><strong>Full name:</strong> <span id="full-name"></span></p>
+      <p><strong>Birth date:</strong> <span id="birth-date"></span></p>
+      <p><strong>Account created on:</strong> <span id="created-at"></span></p>
+    </div>
+
+    <hr>
+
+    <h2>Posted Comments</h2>
+    <div id="user-comments"></div>
+
+    <p><a href="index.html">&larr; Back to forum</a></p>
+  </div>
+
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header-container").innerHTML = data;
+
+        // After header is injected into the DOM
+
+        // Load profile link script
+        const script = document.createElement("script");
+        script.type = "module";
+        script.src = "../src/js/header.js";
+        document.body.appendChild(script);
+
+        // Load logout script
+        const logoutScript = document.createElement("script");
+        logoutScript.type = "module";
+        logoutScript.src = "../src/js/logout.js";
+        document.body.appendChild(logoutScript);
+      });
+  </script>
+
+  <script type="module" src="../src/js/profile.js"></script>
+
+  <!-- Delete confirmation modal -->
+  <div id="delete-modal" class="modal hidden">
+    <div class="modal-content">
+      <p id="delete-message">Are you sure you want to delete this comment?</p>
+      <div class="modal-buttons">
+        <button id="confirm-delete">Yes, delete comment</button>
+        <button id="cancel-delete">No, keep comment</button>
+      </div>
+    </div>
+  </div>
+
+  <p id="delete-result" class="delete-result"></p>
+</body>
+</html>

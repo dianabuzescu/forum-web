@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Forum</title>
+  <link rel="stylesheet" href="/src/css/style.css">
+  <script type="module">
+    const userId = localStorage.getItem("currentUserId");
+    if (!userId) {
+      window.location.href = "login.html";
+    }
+  </script>
+</head>
+<body>
+  <div id="header-container"></div>
+
+  <h1>Topics</h1>
+  <ul id="topic-list"></ul>
+
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header-container").innerHTML = data;
+
+        // Load profile link script
+        const script = document.createElement("script");
+        script.type = "module";
+        script.src = "../src/js/header.js";
+        document.body.appendChild(script);
+
+        // Load logout script
+        const logoutScript = document.createElement("script");
+        logoutScript.type = "module";
+        logoutScript.src = "../src/js/logout.js";
+        document.body.appendChild(logoutScript);
+      });
+  </script>
+  
+  <script type="module" src="../src/js/forum.js"></script>
+</body>
+</html>

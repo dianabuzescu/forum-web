@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Topic</title>
+  <link rel="stylesheet" href="/src/css/style.css" />
+
+  <script type="module">
+    const userId = localStorage.getItem("currentUserId");
+    if (!userId) {
+      window.location.href = "login.html";
+    }
+  </script>
+</head>
+<body>
+  <div id="header-container"></div>
+
+  <h1 id="topic-title">Loading...</h1>
+
+  <ul id="comment-list"></ul>
+
+  <h2>Add a comment</h2>
+  <form id="comment-form">
+    <textarea id="comment-content" placeholder="Write something..." required></textarea>
+    <br>
+    <button type="submit">Post Comment</button>
+  </form>
+
+  <br />
+  <a href="index.html" class="back-link">← Back to forum</a>
+
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header-container").innerHTML = data;
+
+        // After header is injected into the DOM, load supporting scripts
+        const profileScript = document.createElement("script");
+        profileScript.type = "module";
+        profileScript.src = "../src/js/header.js";
+        document.body.appendChild(profileScript);
+
+        const logoutScript = document.createElement("script");
+        logoutScript.type = "module";
+        logoutScript.src = "../src/js/logout.js";
+        document.body.appendChild(logoutScript);
+      });
+  </script>
+
+  <script type="module" src="../src/js/topic.js"></script>
+</body>
+</html>

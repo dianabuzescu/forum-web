@@ -1,0 +1,107 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "diana",
+      "password": "1234",
+      "firstName": "Diana",
+      "lastName": "Buzescu",
+      "birthDate": "2003-05-12",
+      "createdAt": "2025-03-22",
+      "public": true
+    },
+    {
+      "id": "2",
+      "username": "alice",
+      "password": "pass1",
+      "firstName": "Alice",
+      "lastName": "Popescu",
+      "birthDate": "1998-11-03",
+      "createdAt": "2024-12-18",
+      "public": true
+    },
+    {
+      "id": "3",
+      "username": "bob",
+      "password": "pass2",
+      "firstName": "Robert",
+      "lastName": "Marinescu",
+      "birthDate": "2000-06-27",
+      "createdAt": "2025-01-09",
+      "public": true
+    },
+    {
+      "id": "a17b",
+      "username": "maria",
+      "password": "ana2",
+      "firstName": "Maria",
+      "lastName": "Pop",
+      "birthDate": "2003-02-02",
+      "createdAt": "2026-01-31"
+    }
+  ],
+  "topics": [
+    {
+      "id": "1",
+      "title": "Bine ați venit pe forum!"
+    },
+    {
+      "id": "2",
+      "title": "Sugestii pentru începători"
+    },
+    {
+      "id": "3",
+      "title": "Întrebări legate de JavaScript"
+    }
+  ],
+  "comments": [
+    {
+      "id": "2",
+      "topicId": 1,
+      "userId": 2,
+      "content": "Bun venit Diana!"
+    },
+    {
+      "id": "3",
+      "topicId": 2,
+      "userId": 3,
+      "content": "Citiți documentația MDN."
+    },
+    {
+      "id": "4",
+      "topicId": 3,
+      "userId": 2,
+      "content": "Aveți întrebări despre evenimente?"
+    },
+    {
+      "id": "f764",
+      "topicId": "1",
+      "content": "buna",
+      "userId": 1
+    },
+    {
+      "id": "93b5",
+      "topicId": "2",
+      "content": "ce?",
+      "userId": 1
+    },
+    {
+      "id": "df95",
+      "topicId": "1",
+      "content": "Acesta \neste \nun \ntest",
+      "userId": 1
+    },
+    {
+      "id": "c3e0",
+      "topicId": "3",
+      "content": "add",
+      "userId": 1
+    },
+    {
+      "id": "d10e",
+      "topicId": "1",
+      "content": "hey",
+      "userId": 1
+    }
+  ]
+}
